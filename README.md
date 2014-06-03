@@ -48,7 +48,7 @@ I'm completing assignments as I learn so mistakes are bound to be present. Wheth
 - p21: Argv
 - p22: Reverse the Command Line
 
-##LIBRARIES##
+##PACKAGES##
 - Math
  - p13: The abs Function
  - p15: Using the sqrt Function
