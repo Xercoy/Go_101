@@ -1,36 +1,51 @@
-/*
+/*******************************************************************************
 Problem #5: The fscanf Function
 Author: Corey Prak
 Date Created: 04/03/2014
 Comments:
-Had to refer to documentation so much. Really not used to the organization:
-func Open(name string) (file *File, err error)
+06/04/2014
 
-This is how I see it, hope it helps:
-func *function name*(*argument name and data type*) (*return parameters, name then datatype*)
-*/
+Added comments
+
+Changed code around
+- Removed short declarations.
+- Closed the file. 
+*******************************************************************************/
 
 package main
 
-//importing fmt for file I/O and os for opening file. 
+// Importing fmt for file I/O and os for opening file. 
 import "fmt"
 import "os"
 
-func main(){        
-  // Open, used for reading,
-  // Takes a string, returns a pointer to a file (file) & error (err)
-  filePtr, fErr := os.Open("testdata6")
-  	// If fErr is not nil, then it'll be a *PathError.
+func main(){ 
+
+  /* Declare filtPtr to be a  pointer to a File. File is a type defined in the 
+     os package. */
+  var filePtr *os.File
+  var fErr, cErr error
+
+  var count int
+
+  /* Declare data to be a slice of bytes, then allocate contiguous space of 100
+     bytes for the data slice to refer to. */
+  var data []byte
+  data = make([]byte, 100)
+
+  /* Call the function Open from the os package, provide the file to be opened 
+     as an argument. If successful, return an address which filePtr will be 
+     assigned to and leave fErr untouched with its default value of nil. If
+     the file is unable to be opened, then an fErr will not be nil, but another
+     error instead. */
+  filePtr, fErr = os.Open("testdata6")
+ 	// If fErr is not nil, then it'll be a *PathError.
     if fErr != nil {
 			fmt.Println(fErr)
     }
 
-  // Dynamically create a slice of 100 bytes.
-	data := make([]byte, 100)
-
   // Read the file. Number of bytes depends on the size of the slice. 
   // count will receive Read's return value of the number of bytes read. 
-	count, cErr := filePtr.Read(data)
+	count, cErr = filePtr.Read(data)
   // If xErr is not nil, then it'll be a *PathError. 
   if cErr != nil {
 		fmt.Println(fErr)
@@ -39,4 +54,10 @@ func main(){
   // Print the number of bytes read, as well as the data.
   // I can't find any documentation on wth data[] is. 
   fmt.Printf("read %d bytes: %q\n", count, data[:count])
+
+  /* Close the file. ALWAYS REMEMBER THIS! This is not a general function of 
+     the os package, but instead a method which belongs to a pointer of to a File
+     (*File), which must be accessed as such, similar to what we've seen when 
+     accessing the functions of a package. */
+  filePtr.Close()
 }
