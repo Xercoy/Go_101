@@ -1,10 +1,12 @@
-/*
+/*******************************************************************************
 Problem #9: Using a For Loop
 Author: Corey Prak
 Date Created: 04/16/2014
-Comments:
 
-*/
+Description: Create a file called testdata9 that contains 5 positive integer values. 
+
+Comments:
+/******************************************************************************/
 
 package main
 
@@ -15,7 +17,7 @@ import (
 
 func main() {
 
-  var fileNum int = 0
+  var fileNum int
 
   filePtr, openErr := os.Open("testdata9")
   if openErr != nil {
