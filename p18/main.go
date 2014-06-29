@@ -8,7 +8,7 @@ Description: Your task is to write a C program that accepts two positive integer
 If you were to type in 5 and 3, you output would be:
 
 *****
-***** 
+*****
 *****
 
 Comments: YAY, we're finally at loops!!!
@@ -16,59 +16,59 @@ Comments: YAY, we're finally at loops!!!
 
 package main
 
-import(
-  "fmt"
+import (
+	"fmt"
 )
 
 func main() {
 
-  //Integer variables that will contain user submitted length and height.
-  var length int
-  var height int
-  var scanErr error
+	//Integer variables that will contain user submitted length and height.
+	var length int
+	var height int
+	var scanErr error
 
-  //Integer values that will act as incrementers. Starting with i by convention. No particular reason for multiple declarations in one line, just wanted to show that it was possible.
-  var i, j int
+	//Integer values that will act as incrementers. Starting with i by convention. No particular reason for multiple declarations in one line, just wanted to show that it was possible.
+	var i, j int
 
-  fmt.Printf("\n\nPlease enter two integer values which will be used to determine the size of a box of asterisks. Both values must be less than 21, for length and height, respectively: ")
+	fmt.Printf("\n\nPlease enter two integer values which will be used to determine the size of a box of asterisks. Both values must be less than 21, for length and height, respectively: ")
 
-  //Also possible to read in one integer at a time, just wanted to show that this was possible as well. In my limited experience with golang's format specifiers, they must not have any spaces between them; compiler will complain. 
-  _, scanErr = fmt.Scanf("%d %d", &length, &height)  
-  if (scanErr != nil) {
-    fmt.Printf("\n\nERROR: %v\n\nExiting...\n\n", scanErr)
- 
-    return
-  }
+	//Also possible to read in one integer at a time, just wanted to show that this was possible as well. In my limited experience with golang's format specifiers, they must not have any spaces between them; compiler will complain.
+	_, scanErr = fmt.Scanf("%d %d", &length, &height)
+	if scanErr != nil {
+		fmt.Printf("\n\nERROR: %v\n\nExiting...\n\n", scanErr)
 
-  //Debugging
-  fmt.Printf("\nLength:%d, Height:%d\n", length, height)
+		return
+	}
 
-  //There are so many ways to design this portion of error checking. It's possible to do some error handling, or have a loop that will continuously keep asking for valid input, or something entirely different...
-  if ( (length >= 21) || (height >= 21) ) {
-    fmt.Printf("Invalid input for length(%d) and/or height(%d). Exiting...\n\n", length, height)
-    return
-  }
+	//Debugging
+	fmt.Printf("\nLength:%d, Height:%d\n", length, height)
 
-  //Spacing.
-  fmt.Printf("\n\n")
+	//There are so many ways to design this portion of error checking. It's possible to do some error handling, or have a loop that will continuously keep asking for valid input, or something entirely different...
+	if (length >= 21) || (height >= 21) {
+		fmt.Printf("Invalid input for length(%d) and/or height(%d). Exiting...\n\n", length, height)
+		return
+	}
 
-  //i is already set to its default value of 0 when declared, just being explicit to demonstrate the first format of a for loop.
-  //Demonstrates the first format of a loop: for *init incrementer* ; *condition* ; *incrementer modification* {}
-  //Increment modification simply adds one to the current value of i, assigns back to the variable.
-  for i = 0; i < height; i = i + 1 {
-  
-    //Demonstrates the second form of a for loop, albeit simpler: for *condition* {}
-    //Note the particular notation that modifies the increment. j += 1 is synonymous with j = j + 1.
-    for j < length {
-      fmt.Printf("*")
-      
-      j += 1
-    }
-    
-    fmt.Printf("\n") 
-    j = 0
-  } 
+	//Spacing.
+	fmt.Printf("\n\n")
 
-  //Spacing.
-  fmt.Printf("\n\n")
+	//i is already set to its default value of 0 when declared, just being explicit to demonstrate the first format of a for loop.
+	//Demonstrates the first format of a loop: for *init incrementer* ; *condition* ; *incrementer modification* {}
+	//Increment modification simply adds one to the current value of i, assigns back to the variable.
+	for i = 0; i < height; i = i + 1 {
+
+		//Demonstrates the second form of a for loop, albeit simpler: for *condition* {}
+		//Note the particular notation that modifies the increment. j += 1 is synonymous with j = j + 1.
+		for j < length {
+			fmt.Printf("*")
+
+			j += 1
+		}
+
+		fmt.Printf("\n")
+		j = 0
+	}
+
+	//Spacing.
+	fmt.Printf("\n\n")
 }

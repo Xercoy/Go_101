@@ -19,18 +19,18 @@ Comments:
 
 package main
 
-import(
- "fmt"
-  "os"
+import (
+	"fmt"
+	"os"
 )
 
 func main() {
-  
-  var argLength int = len(os.Args)
 
-  if argLength != 1 {
-    fmt.Printf("\nThere are %d command line arguments.\n\n", argLength)
-  } else {
-    fmt.Printf("\nThere is one command line argument.\n\n", argLength)
-  }
+	var argLength int = len(os.Args)
+
+	if argLength != 1 {
+		fmt.Printf("\nThere are %d command line arguments.\n\n", argLength)
+	} else {
+		fmt.Printf("\nThere is one command line argument.\n\n", argLength)
+	}
 }

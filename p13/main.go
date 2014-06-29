@@ -11,22 +11,22 @@ Comments: I thought it was pretty cool that I finished this quickly, but at the 
 
 package main
 
-import(
- "fmt"
- "math"
-) 
+import (
+	"fmt"
+	"math"
+)
 
-func main(){
-  // Since we're going to use the abs function which takes in a float64 int, that's texactly the type of data i'm going to supply it with.
-  var userInput float64
-  var scanErr error
+func main() {
+	// Since we're going to use the abs function which takes in a float64 int, that's texactly the type of data i'm going to supply it with.
+	var userInput float64
+	var scanErr error
 
-  fmt.Printf("\nPlease enter an integer value: ")
-  _, scanErr = fmt.Scanf("%f", &userInput)
-  if scanErr != nil {
-    fmt.Printf("\nERROR: %q.\n\nExiting...\n\n", scanErr)
-    return
-  }
+	fmt.Printf("\nPlease enter an integer value: ")
+	_, scanErr = fmt.Scanf("%f", &userInput)
+	if scanErr != nil {
+		fmt.Printf("\nERROR: %q.\n\nExiting...\n\n", scanErr)
+		return
+	}
 
-  fmt.Printf("\nThe absolute value of %f is %f.\n\n", userInput, math.Abs(userInput)) 
+	fmt.Printf("\nThe absolute value of %f is %f.\n\n", userInput, math.Abs(userInput))
 }

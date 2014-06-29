@@ -13,22 +13,22 @@ package main
 import "fmt"
 
 func main() {
-  var userInput int 
-  var scanErr error
+	var userInput int
+	var scanErr error
 
-  fmt.Printf("\nPlease enter an integer value: ")
+	fmt.Printf("\nPlease enter an integer value: ")
 
-  _, scanErr = fmt.Scanf("%d", &userInput)
-  if scanErr != nil {
-    fmt.Printf("\nERROR: %s\n\n", scanErr) 
-    return
-  }
+	_, scanErr = fmt.Scanf("%d", &userInput)
+	if scanErr != nil {
+		fmt.Printf("\nERROR: %s\n\n", scanErr)
+		return
+	}
 
-  if userInput > 0 {
-    fmt.Printf("The number is positive.\n\n")
-  } else if userInput == 0 {
-    fmt.Printf("The number is zero.\n\n")
-  } else if userInput < 0 {
-    fmt.Printf("The number is negative.\n\n")
-  }
+	if userInput > 0 {
+		fmt.Printf("The number is positive.\n\n")
+	} else if userInput == 0 {
+		fmt.Printf("The number is zero.\n\n")
+	} else if userInput < 0 {
+		fmt.Printf("The number is negative.\n\n")
+	}
 }

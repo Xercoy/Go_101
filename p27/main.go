@@ -10,33 +10,33 @@ Comments:
 
 package main
 
-import(
-  "fmt"
+import (
+	"fmt"
 )
 
 func main() {
-  var numberArray [10]int
-  var userInput, i int
-  var err error
+	var numberArray [10]int
+	var userInput, i int
+	var err error
 
-  fmt.Printf("\nPlease enter ten integer values:\n\n")
+	fmt.Printf("\nPlease enter ten integer values:\n\n")
 
-  for ; i < 10; i++ {
-    _, err = fmt.Scanf("%d", &userInput)
-    if err != nil {
+	for ; i < 10; i++ {
+		_, err = fmt.Scanf("%d", &userInput)
+		if err != nil {
 			fmt.Printf("\nScan Error: %v\n\nExiting...\n\n", err)
 			return
-    }
+		}
 
-    numberArray[i] = userInput
-  } 
+		numberArray[i] = userInput
+	}
 
-  fmt.Printf("\nThe 10 integer values displayed in reverse:\n")
+	fmt.Printf("\nThe 10 integer values displayed in reverse:\n")
 
-  for i = i - 1; i >= 0; i-- {
-    fmt.Printf("\n%d", numberArray[i])
-  } 
+	for i = i - 1; i >= 0; i-- {
+		fmt.Printf("\n%d", numberArray[i])
+	}
 
-  //format
-  fmt.Printf("\n\n")
+	//format
+	fmt.Printf("\n\n")
 }
